@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/welcome.stories.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1663661774781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1663661774781,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport { storiesOf } from '@storybook/react'\n\nstoriesOf('Welcome', module)\n  .add('welcome', () => {\n    return (\n      <>\n        <h1>欢迎来到 kiko-ui 组件库</h1>\n        <h3>kiko-ui是依照anrd规则react组件库</h3>\n        <p>kiko-ui使用 React Hooks 和 typescript</p>\n        <h3>安装试试</h3>\n      </>\n    )\n  }, { info : { disable: true }})\n"
+        }
+    ]
+}

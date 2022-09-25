@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/components/Button/button.test.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1662688372741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1662689028967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,27 @@\n+/*\r\n+ * @Descripttion: \r\n+ * @version: \r\n\\ No newline at end of file\n+ * @Author: Leojias\r\n+ * @Date: 2022-09-09 09:50:10\r\n+ * @LastEditors: Leojias\r\n+ * @LastEditTime: 2022-09-09 10:03:48\r\n+ */\r\n import React from \"react\";\r\n import Button from \"./button\";\r\n-import {render} from '@testing-library/react'\n+import {render} from '@testing-library/react'\r\n+\r\n+describe(\r\n+    \"test button\",()=>{\r\n+        test('defalut button',()=>{\r\n+\r\n+        }),\r\n+        test('defalut button',()=>{\r\n+\r\n+        }),\r\n+        test('defalut button',()=>{\r\n+\r\n+        }),\r\n+        test('defalut button',()=>{\r\n+\r\n+        })\r\n+})\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1662689053631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,17 +11,21 @@\n import {render} from '@testing-library/react'\r\n \r\n describe(\r\n     \"test button\",()=>{\r\n+        //\r\n         test('defalut button',()=>{\r\n \r\n         }),\r\n+        //\r\n         test('defalut button',()=>{\r\n \r\n         }),\r\n+        //\r\n         test('defalut button',()=>{\r\n \r\n         }),\r\n+        //\r\n         test('defalut button',()=>{\r\n \r\n         })\r\n })\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1662689460838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,18 +3,21 @@\n  * @version: \r\n  * @Author: Leojias\r\n  * @Date: 2022-09-09 09:50:10\r\n  * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-09 10:03:48\r\n+ * @LastEditTime: 2022-09-09 10:11:00\r\n  */\r\n import React from \"react\";\r\n import Button from \"./button\";\r\n import {render} from '@testing-library/react'\r\n \r\n describe(\r\n     \"test button\",()=>{\r\n-        //\r\n         test('defalut button',()=>{\r\n+            const wrapper =render(<Button>nice</Button>)\r\n+            const element =wrapper.getByText('nice')\r\n+            expect(element).toBeInTheDocument()\r\n+            expect(element.tagName).toEqual('BUTTON')\r\n \r\n         }),\r\n         //\r\n         test('defalut button',()=>{\r\n"
+                },
+                {
+                    "date": 1662689595723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,22 +3,24 @@\n  * @version: \r\n  * @Author: Leojias\r\n  * @Date: 2022-09-09 09:50:10\r\n  * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-09 10:11:00\r\n+ * @LastEditTime: 2022-09-09 10:13:15\r\n  */\r\n import React from \"react\";\r\n import Button from \"./button\";\r\n import {render} from '@testing-library/react'\r\n \r\n describe(\r\n     \"test button\",()=>{\r\n-        test('defalut button',()=>{\r\n+        test('default button',()=>{\r\n             const wrapper =render(<Button>nice</Button>)\r\n             const element =wrapper.getByText('nice')\r\n             expect(element).toBeInTheDocument()\r\n             expect(element.tagName).toEqual('BUTTON')\r\n+            expect(element).toHaveClass('btn btn-default')\r\n \r\n+\r\n         }),\r\n         //\r\n         test('defalut button',()=>{\r\n \r\n"
+                },
+                {
+                    "date": 1662988028647,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,36 +1,25 @@\n-/*\r\n- * @Descripttion: \r\n- * @version: \r\n- * @Author: Leojias\r\n- * @Date: 2022-09-09 09:50:10\r\n- * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-09 10:13:15\r\n- */\r\n+\r\n import React from \"react\";\r\n-import Button from \"./button\";\r\n-import {render} from '@testing-library/react'\r\n+import Button,{ButtonSize,ButtonType} from \"./button\";\r\n+import {fireEvent, render} from '@testing-library/react'\r\n+const defaultProps ={\r\n+    onClick:jest.fn()\r\n+}\r\n \r\n describe(\r\n     \"test button\",()=>{\r\n         test('default button',()=>{\r\n-            const wrapper =render(<Button>nice</Button>)\r\n+            const wrapper =render(<Button {...defaultProps}>nice</Button>)\r\n             const element =wrapper.getByText('nice')\r\n             expect(element).toBeInTheDocument()\r\n             expect(element.tagName).toEqual('BUTTON')\r\n             expect(element).toHaveClass('btn btn-default')\r\n+            fireEvent.click(element)\r\n+            expect(defaultProps.onClick).toHaveBeenCalled()\r\n \r\n \r\n-        }),\r\n-        //\r\n-        test('defalut button',()=>{\r\n-\r\n-        }),\r\n-        //\r\n-        test('defalut button',()=>{\r\n-\r\n-        }),\r\n-        //\r\n-        test('defalut button',()=>{\r\n-\r\n         })\r\n+       \r\n+        \r\n+       \r\n })\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1662988048604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,12 @@\n+/*\r\n+ * @Descripttion: \r\n+ * @version: \r\n+ * @Author: Leojias\r\n+ * @Date: 2022-09-09 09:50:10\r\n+ * @LastEditors: Leojias\r\n+ * @LastEditTime: 2022-09-12 21:07:27\r\n+ */\r\n \r\n import React from \"react\";\r\n import Button,{ButtonSize,ButtonType} from \"./button\";\r\n import {fireEvent, render} from '@testing-library/react'\r\n"
+                },
+                {
+                    "date": 1662988062089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \r\n  * @Author: Leojias\r\n  * @Date: 2022-09-09 09:50:10\r\n  * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-12 21:07:27\r\n+ * @LastEditTime: 2022-09-12 21:07:41\r\n  */\r\n \r\n import React from \"react\";\r\n import Button,{ButtonSize,ButtonType} from \"./button\";\r\n"
+                },
+                {
+                    "date": 1662988448158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n /*\r\n  * @Descripttion: \r\n  * @version: \r\n- * @Author: Leojias\r\n+ * @Author: kiko\r\n  * @Date: 2022-09-09 09:50:10\r\n  * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-12 21:07:41\r\n+ * @LastEditTime: 2022-09-12 21:14:07\r\n  */\r\n \r\n import React from \"react\";\r\n import Button,{ButtonSize,ButtonType} from \"./button\";\r\n"
+                },
+                {
+                    "date": 1662988458574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n  * @Descripttion: \r\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-09 09:50:10\r\n- * @LastEditors: Leojias\r\n+ * @LastEditors:kiko\r\n  * @LastEditTime: 2022-09-12 21:14:07\r\n  */\r\n \r\n import React from \"react\";\r\n"
+                }
+            ],
+            "date": 1662688372741,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport Button from \"./button\";\r\nimport {render} from '@testing-library/react'"
+        }
+    ]
+}

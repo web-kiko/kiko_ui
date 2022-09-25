@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/Button/button.stories.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1663655967859,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1663662667211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-18 15:15:08\r\n  * @LastEditors: kiko\r\n- * @LastEditTime: 2022-09-20 14:39:27\r\n+ * @LastEditTime: 2022-09-20 16:31:07\r\n  */\r\n import React from 'react'\r\n import { storiesOf } from '@storybook/react'\r\n import { action } from '@storybook/addon-actions'\r\n@@ -18,19 +18,19 @@\n     )\r\n \r\n     const buttonWithSize = () => (\r\n         <>\r\n-        <Button size=\"lg\">Large button</Button>\r\n-        <Button size=\"sm\">Small button</Button>\r\n+        <Button buttonSize=\"lg\">Large button</Button>\r\n+        <Button buttonSize=\"sm\">Small button</Button>\r\n         </>\r\n     )\r\n     \r\n     const buttonWithType = () => (\r\n         <>\r\n-        <Button btnType=\"primary\">Primary button</Button>\r\n-        <Button btnType=\"default\">Default Button</Button>\r\n-        <Button btnType=\"danger\">Danger button</Button>\r\n-        <Button btnType=\"link\" href='http://www.baidu.com'>Link button</Button>\r\n+        <Button buttonType=\"primary\">Primary button</Button>\r\n+        <Button buttonType=\"default\">Default Button</Button>\r\n+        <Button buttonType=\"danger\">Danger button</Button>\r\n+        <Button buttonType=\"link\" href='http://www.baidu.com'>Link button</Button>\r\n         </>\r\n     )\r\n     \r\n     storiesOf('Button 组件', module)\r\n"
+                },
+                {
+                    "date": 1663746351048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-18 15:15:08\r\n  * @LastEditors: kiko\r\n- * @LastEditTime: 2022-09-20 16:31:07\r\n+ * @LastEditTime: 2022-09-21 15:45:50\r\n  */\r\n import React from 'react'\r\n import { storiesOf } from '@storybook/react'\r\n import { action } from '@storybook/addon-actions'\r\n@@ -32,9 +32,9 @@\n         <Button buttonType=\"link\" href='http://www.baidu.com'>Link button</Button>\r\n         </>\r\n     )\r\n     \r\n-    storiesOf('Button 组件', module)\r\n+    storiesOf('Button Component', module)\r\n         // .addDecorator(withInfo)\r\n         .addParameters({\r\n             info:{\r\n                 text:`## 支持md写法`\r\n"
+                }
+            ],
+            "date": 1663655967859,
+            "name": "Commit-0",
+            "content": "/*\r\n * @Descripttion: \r\n * @version: \r\n * @Author: kiko\r\n * @Date: 2022-09-18 15:15:08\r\n * @LastEditors: kiko\r\n * @LastEditTime: 2022-09-20 14:39:27\r\n */\r\nimport React from 'react'\r\nimport { storiesOf } from '@storybook/react'\r\nimport { action } from '@storybook/addon-actions'\r\n//单独配置，后来用了全局配置在preview.js\r\n// import { withInfo } from '@storybook/addon-info'\r\nimport Button from './button'\r\n\r\nconst defaultButton = () => (\r\n    <Button onClick={action('clicked')}>Default button</Button>\r\n    )\r\n\r\n    const buttonWithSize = () => (\r\n        <>\r\n        <Button size=\"lg\">Large button</Button>\r\n        <Button size=\"sm\">Small button</Button>\r\n        </>\r\n    )\r\n    \r\n    const buttonWithType = () => (\r\n        <>\r\n        <Button btnType=\"primary\">Primary button</Button>\r\n        <Button btnType=\"default\">Default Button</Button>\r\n        <Button btnType=\"danger\">Danger button</Button>\r\n        <Button btnType=\"link\" href='http://www.baidu.com'>Link button</Button>\r\n        </>\r\n    )\r\n    \r\n    storiesOf('Button 组件', module)\r\n        // .addDecorator(withInfo)\r\n        .addParameters({\r\n            info:{\r\n                text:`## 支持md写法`\r\n            }\r\n        })\r\n        .add(' 默认Button', defaultButton)\r\n        .add('不同尺寸的 Button', buttonWithSize)\r\n        .add('不同类型的 Button', buttonWithType)\r\n"
+        }
+    ]
+}

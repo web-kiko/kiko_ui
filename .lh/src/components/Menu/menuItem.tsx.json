@@ -1,0 +1,66 @@
+{
+    "sourceFile": "src/components/Menu/menuItem.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1662984764518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1662985008981,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,21 @@\n+/*\r\n+ * @Descripttion: \r\n+ * @version: \r\n+ * @Author: Leojias\r\n+ * @Date: 2022-09-12 20:09:06\r\n+ * @LastEditors: Leojias\r\n+ * @LastEditTime: 2022-09-12 20:16:48\r\n+ */\r\n import React from 'react'\r\n import classNames from 'classnames'\r\n \r\n export interface MenuItemProps {\r\n     index?:number,\r\n     className?:string,\r\n     disabled?:boolean,\r\n+    children?:any,\r\n     style?:React.CSSProperties,\r\n+}\r\n+const MenuItem:React.FC< MenuItemProps> =(props)=>{\r\n+    const { index,className,disabled,style,children}=props\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1662985187975,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \r\n  * @Author: Leojias\r\n  * @Date: 2022-09-12 20:09:06\r\n  * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-12 20:16:48\r\n+ * @LastEditTime: 2022-09-12 20:19:47\r\n  */\r\n import React from 'react'\r\n import classNames from 'classnames'\r\n \r\n@@ -17,5 +17,8 @@\n     style?:React.CSSProperties,\r\n }\r\n const MenuItem:React.FC< MenuItemProps> =(props)=>{\r\n     const { index,className,disabled,style,children}=props\r\n+    const classes =classNames(\"menu-item\",className,{\r\n+        'is-disabled':disabled\r\n+    })\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1662985295468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \r\n  * @Author: Leojias\r\n  * @Date: 2022-09-12 20:09:06\r\n  * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-12 20:19:47\r\n+ * @LastEditTime: 2022-09-12 20:21:35\r\n  */\r\n import React from 'react'\r\n import classNames from 'classnames'\r\n \r\n@@ -20,5 +20,11 @@\n     const { index,className,disabled,style,children}=props\r\n     const classes =classNames(\"menu-item\",className,{\r\n         'is-disabled':disabled\r\n     })\r\n-}\n\\ No newline at end of file\n+    return (\r\n+        <li className={classes} style={style}>\r\n+            {children}\r\n+        </li>\r\n+    )\r\n+}\r\n+export default MenuItem\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1662988529921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n /*\r\n  * @Descripttion: \r\n  * @version: \r\n- * @Author: Leojias\r\n+ * @Author: kiko\r\n  * @Date: 2022-09-12 20:09:06\r\n  * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-12 20:21:35\r\n+ * @LastEditTime: 2022-09-12 21:15:29\r\n  */\r\n import React from 'react'\r\n import classNames from 'classnames'\r\n \r\n"
+                },
+                {
+                    "date": 1662988540776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n  * @Descripttion: \r\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-12 20:09:06\r\n- * @LastEditors: Leojias\r\n+ * @LastEditors: kiko\r\n  * @LastEditTime: 2022-09-12 21:15:29\r\n  */\r\n import React from 'react'\r\n import classNames from 'classnames'\r\n"
+                },
+                {
+                    "date": 1662988551302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,5 @@\n-/*\r\n- * @Descripttion: \r\n- * @version: \r\n- * @Author: kiko\r\n- * @Date: 2022-09-12 20:09:06\r\n- * @LastEditors: kiko\r\n- * @LastEditTime: 2022-09-12 21:15:29\r\n- */\r\n+\r\n import React from 'react'\r\n import classNames from 'classnames'\r\n \r\n export interface MenuItemProps {\r\n"
+                },
+                {
+                    "date": 1663031857743,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n \r\n-import React from 'react'\r\n+import React,{useContext} from 'react'\r\n import classNames from 'classnames'\r\n+import { MenuContext } from './menu'\r\n \r\n+\r\n export interface MenuItemProps {\r\n     index?:number,\r\n     className?:string,\r\n     disabled?:boolean,\r\n@@ -10,10 +12,12 @@\n     style?:React.CSSProperties,\r\n }\r\n const MenuItem:React.FC< MenuItemProps> =(props)=>{\r\n     const { index,className,disabled,style,children}=props\r\n+    const context =useContext(MenuContext)\r\n     const classes =classNames(\"menu-item\",className,{\r\n-        'is-disabled':disabled\r\n+        'is-disabled':disabled,\r\n+        'is-active':context.index===index\r\n     })\r\n     return (\r\n         <li className={classes} style={style}>\r\n             {children}\r\n"
+                },
+                {
+                    "date": 1663032075439,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n import { MenuContext } from './menu'\r\n \r\n \r\n export interface MenuItemProps {\r\n-    index?:number,\r\n+    index:number,\r\n     className?:string,\r\n     disabled?:boolean,\r\n     children?:any,\r\n     style?:React.CSSProperties,\r\n@@ -17,8 +17,13 @@\n     const classes =classNames(\"menu-item\",className,{\r\n         'is-disabled':disabled,\r\n         'is-active':context.index===index\r\n     })\r\n+    const handleClick=()=>{\r\n+        if(context.onSelect && !disabled){\r\n+            context.onSelect(index)\r\n+        }\r\n+    }\r\n     return (\r\n         <li className={classes} style={style}>\r\n             {children}\r\n         </li>\r\n"
+                },
+                {
+                    "date": 1663032163288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n             context.onSelect(index)\r\n         }\r\n     }\r\n     return (\r\n-        <li className={classes} style={style}>\r\n+        <li className={classes} style={style} onClick ={handleClick}>\r\n             {children}\r\n         </li>\r\n     )\r\n }\r\n"
+                },
+                {
+                    "date": 1663234586941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,21 @@\n+/*\r\n+ * @Descripttion: \r\n+ * @version: \r\n+ * @Author: kiko\r\n+ * @Date: 2022-09-12 20:09:06\r\n+ * @LastEditors: kiko\r\n+ * @LastEditTime: 2022-09-15 17:36:26\r\n+ */\r\n \r\n import React,{useContext} from 'react'\r\n import classNames from 'classnames'\r\n import { MenuContext } from './menu'\r\n \r\n \r\n+\r\n export interface MenuItemProps {\r\n-    index:number,\r\n+    index?:number,\r\n     className?:string,\r\n     disabled?:boolean,\r\n     children?:any,\r\n     style?:React.CSSProperties,\r\n@@ -22,11 +31,13 @@\n         if(context.onSelect && !disabled){\r\n             context.onSelect(index)\r\n         }\r\n     }\r\n+    \r\n     return (\r\n         <li className={classes} style={style} onClick ={handleClick}>\r\n             {children}\r\n         </li>\r\n     )\r\n }\r\n+MenuItem.displayName='MenuItem'\r\n export default MenuItem\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1663234731766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-12 20:09:06\r\n  * @LastEditors: kiko\r\n- * @LastEditTime: 2022-09-15 17:36:26\r\n+ * @LastEditTime: 2022-09-15 17:38:51\r\n  */\r\n \r\n import React,{useContext} from 'react'\r\n import classNames from 'classnames'\r\n@@ -27,9 +27,9 @@\n         'is-disabled':disabled,\r\n         'is-active':context.index===index\r\n     })\r\n     const handleClick=()=>{\r\n-        if(context.onSelect && !disabled){\r\n+        if(context.onSelect && !disabled && (typeof index==='number')){\r\n             context.onSelect(index)\r\n         }\r\n     }\r\n     \r\n"
+                },
+                {
+                    "date": 1663250761768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,17 +3,15 @@\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-12 20:09:06\r\n  * @LastEditors: kiko\r\n- * @LastEditTime: 2022-09-15 17:38:51\r\n+ * @LastEditTime: 2022-09-15 22:06:01\r\n  */\r\n \r\n import React,{useContext} from 'react'\r\n import classNames from 'classnames'\r\n import { MenuContext } from './menu'\r\n \r\n-\r\n-\r\n export interface MenuItemProps {\r\n     index?:number,\r\n     className?:string,\r\n     disabled?:boolean,\r\n"
+                }
+            ],
+            "date": 1662984764518,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\nimport classNames from 'classnames'\r\n\r\nexport interface MenuItemProps {\r\n    index?:number,\r\n    className?:string,\r\n    disabled?:boolean,\r\n    style?:React.CSSProperties,\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,62 @@
+{
+    "sourceFile": "src/components/Menu/menu.stories.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 11,
+            "patches": [
+                {
+                    "date": 1663669906711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1663669944809,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,12 @@\n+/*\n+ * @Descripttion: \n+ * @version: \n+ * @Author: kiko\n+ * @Date: 2022-09-20 01:15:17\n+ * @LastEditors: kiko\n+ * @LastEditTime: 2022-09-20 18:31:47\n+ */\n import React from 'react'\n import { storiesOf } from '@storybook/react'\n import { action } from '@storybook/addon-actions'\n import Menu from './menu'\n@@ -31,12 +39,12 @@\n \n export const menuWithVertical = () => (\n   <Menu mode=\"vertical\" onSelect={(index) => {action(`clicked ${index} item`)}} >\n     <MenuItem>\n-      cool link\n+      菜单1\n     </MenuItem>\n     <MenuItem>\n-      cool link 2\n+      菜单2\n     </MenuItem>\n     <SubMenu title=\"点击下拉选项\">\n       <MenuItem>\n         下拉选项一\n"
+                },
+                {
+                    "date": 1663669987214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \n  * @Author: kiko\n  * @Date: 2022-09-20 01:15:17\n  * @LastEditors: kiko\n- * @LastEditTime: 2022-09-20 18:31:47\n+ * @LastEditTime: 2022-09-20 18:33:06\n  */\n import React from 'react'\n import { storiesOf } from '@storybook/react'\n import { action } from '@storybook/addon-actions'\n@@ -58,12 +58,12 @@\n \n export const menuWithOpened = () => (\n   <Menu mode=\"vertical\" defaultOpenSubMenus={['2']} onSelect={(index) => {action(`clicked ${index} item`)}} >\n     <MenuItem>\n-      cool link\n+      菜单1\n     </MenuItem>\n     <MenuItem>\n-      cool link 2\n+      菜单2\n     </MenuItem>\n     <SubMenu title=\"默认展开下拉选项\">\n       <MenuItem>\n         下拉选项一\n"
+                },
+                {
+                    "date": 1663670156360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,18 +3,24 @@\n  * @version: \n  * @Author: kiko\n  * @Date: 2022-09-20 01:15:17\n  * @LastEditors: kiko\n- * @LastEditTime: 2022-09-20 18:33:06\n+ * @LastEditTime: 2022-09-20 18:35:55\n  */\n import React from 'react'\n import { storiesOf } from '@storybook/react'\n import { action } from '@storybook/addon-actions'\n import Menu from './menu'\n import MenuItem from './menuItem'\n import SubMenu from './subMenu'\n \n-\n+export const defaultItem =()=>{\n+  <Menu defaultIndex='0' onSelect={(index) => {action(`clicked ${index} item`)}}mode='horizontal'>\n+  <MenuItem >菜单1</MenuItem>\n+  <MenuItem >菜单2</MenuItem>\n+  <MenuItem >菜单3</MenuItem>\n+</Menu>\n+}\n export const defaultMenu = () => (\n   <Menu onSelect={(index) => {action(`clicked ${index} item`)}} >\n     <MenuItem>\n       菜单1\n"
+                },
+                {
+                    "date": 1663670328592,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \n  * @Author: kiko\n  * @Date: 2022-09-20 01:15:17\n  * @LastEditors: kiko\n- * @LastEditTime: 2022-09-20 18:35:55\n+ * @LastEditTime: 2022-09-20 18:38:48\n  */\n import React from 'react'\n import { storiesOf } from '@storybook/react'\n import { action } from '@storybook/addon-actions'\n@@ -13,9 +13,9 @@\n import MenuItem from './menuItem'\n import SubMenu from './subMenu'\n \n export const defaultItem =()=>{\n-  <Menu defaultIndex='0' onSelect={(index) => {action(`clicked ${index} item`)}}mode='horizontal'>\n+  <Menu onSelect={(index) => {action(`clicked ${index} item`)}}mode='horizontal'>\n   <MenuItem >菜单1</MenuItem>\n   <MenuItem >菜单2</MenuItem>\n   <MenuItem >菜单3</MenuItem>\n </Menu>\n@@ -81,7 +81,8 @@\n   </Menu>\n )\n \n storiesOf('Menu Component', module)\n+  .add('defaultItem',defaultItem)\n   .add('Menu', defaultMenu)\n   .add('纵向的 Menu', menuWithVertical)\n   .add('默认展开的纵向 Menu', menuWithOpened)\n"
+                },
+                {
+                    "date": 1663670411462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,24 +3,18 @@\n  * @version: \n  * @Author: kiko\n  * @Date: 2022-09-20 01:15:17\n  * @LastEditors: kiko\n- * @LastEditTime: 2022-09-20 18:38:48\n+ * @LastEditTime: 2022-09-20 18:40:11\n  */\n import React from 'react'\n import { storiesOf } from '@storybook/react'\n import { action } from '@storybook/addon-actions'\n import Menu from './menu'\n import MenuItem from './menuItem'\n import SubMenu from './subMenu'\n \n-export const defaultItem =()=>{\n-  <Menu onSelect={(index) => {action(`clicked ${index} item`)}}mode='horizontal'>\n-  <MenuItem >菜单1</MenuItem>\n-  <MenuItem >菜单2</MenuItem>\n-  <MenuItem >菜单3</MenuItem>\n-</Menu>\n-}\n+\n export const defaultMenu = () => (\n   <Menu onSelect={(index) => {action(`clicked ${index} item`)}} >\n     <MenuItem>\n       菜单1\n@@ -81,8 +75,7 @@\n   </Menu>\n )\n \n storiesOf('Menu Component', module)\n-  .add('defaultItem',defaultItem)\n   .add('Menu', defaultMenu)\n   .add('纵向的 Menu', menuWithVertical)\n   .add('默认展开的纵向 Menu', menuWithOpened)\n"
+                },
+                {
+                    "date": 1663670711157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \n  * @Author: kiko\n  * @Date: 2022-09-20 01:15:17\n  * @LastEditors: kiko\n- * @LastEditTime: 2022-09-20 18:40:11\n+ * @LastEditTime: 2022-09-20 18:45:11\n  */\n import React from 'react'\n import { storiesOf } from '@storybook/react'\n import { action } from '@storybook/addon-actions'\n@@ -37,16 +37,16 @@\n )\n \n \n export const menuWithVertical = () => (\n-  <Menu mode=\"vertical\" onSelect={(index) => {action(`clicked ${index} item`)}} >\n+  <Menu onSelect={(index) => {action(`clicked ${index} item`)}} >\n     <MenuItem>\n       菜单1\n     </MenuItem>\n     <MenuItem>\n       菜单2\n     </MenuItem>\n-    <SubMenu title=\"点击下拉选项\">\n+    <SubMenu title=\"菜单3点击下拉选项\">\n       <MenuItem>\n         下拉选项一\n       </MenuItem>\n       <MenuItem>\n"
+                },
+                {
+                    "date": 1663670721790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -76,6 +76,6 @@\n )\n \n storiesOf('Menu Component', module)\n   .add('Menu', defaultMenu)\n-  .add('纵向的 Menu', menuWithVertical)\n+  .add('横向的 Menu', menuWithVertical)\n   .add('默认展开的纵向 Menu', menuWithOpened)\n"
+                },
+                {
+                    "date": 1663670784401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \n  * @Author: kiko\n  * @Date: 2022-09-20 01:15:17\n  * @LastEditors: kiko\n- * @LastEditTime: 2022-09-20 18:45:11\n+ * @LastEditTime: 2022-09-20 18:46:24\n  */\n import React from 'react'\n import { storiesOf } from '@storybook/react'\n import { action } from '@storybook/addon-actions'\n@@ -37,9 +37,9 @@\n )\n \n \n export const menuWithVertical = () => (\n-  <Menu onSelect={(index) => {action(`clicked ${index} item`)}} >\n+  <Menu mode='horizontal' onSelect={(index) => {action(`clicked ${index} item`)}} >\n     <MenuItem>\n       菜单1\n     </MenuItem>\n     <MenuItem>\n"
+                },
+                {
+                    "date": 1663678144672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \n  * @Author: kiko\n  * @Date: 2022-09-20 01:15:17\n  * @LastEditors: kiko\n- * @LastEditTime: 2022-09-20 18:46:24\n+ * @LastEditTime: 2022-09-20 20:49:04\n  */\n import React from 'react'\n import { storiesOf } from '@storybook/react'\n import { action } from '@storybook/addon-actions'\n@@ -76,6 +76,6 @@\n )\n \n storiesOf('Menu Component', module)\n   .add('Menu', defaultMenu)\n-  .add('横向的 Menu', menuWithVertical)\n-  .add('默认展开的纵向 Menu', menuWithOpened)\n+  .add('横向 Menu', menuWithVertical)\n+  .add('纵向 Menu', menuWithOpened)\n"
+                },
+                {
+                    "date": 1663746284828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \n  * @Author: kiko\n  * @Date: 2022-09-20 01:15:17\n  * @LastEditors: kiko\n- * @LastEditTime: 2022-09-20 20:49:04\n+ * @LastEditTime: 2022-09-21 15:44:44\n  */\n import React from 'react'\n import { storiesOf } from '@storybook/react'\n import { action } from '@storybook/addon-actions'\n@@ -74,8 +74,8 @@\n     </SubMenu>\n   </Menu>\n )\n \n-storiesOf('Menu Component', module)\n+storiesOf('Menu 组件', module)\n   .add('Menu', defaultMenu)\n   .add('横向 Menu', menuWithVertical)\n   .add('纵向 Menu', menuWithOpened)\n"
+                },
+                {
+                    "date": 1663746319596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \n  * @Author: kiko\n  * @Date: 2022-09-20 01:15:17\n  * @LastEditors: kiko\n- * @LastEditTime: 2022-09-21 15:44:44\n+ * @LastEditTime: 2022-09-20 20:49:04\n  */\n import React from 'react'\n import { storiesOf } from '@storybook/react'\n import { action } from '@storybook/addon-actions'\n@@ -74,8 +74,8 @@\n     </SubMenu>\n   </Menu>\n )\n \n-storiesOf('Menu 组件', module)\n+storiesOf('Menu Component', module)\n   .add('Menu', defaultMenu)\n   .add('横向 Menu', menuWithVertical)\n   .add('纵向 Menu', menuWithOpened)\n"
+                }
+            ],
+            "date": 1663669906711,
+            "name": "Commit-0",
+            "content": "import React from 'react'\nimport { storiesOf } from '@storybook/react'\nimport { action } from '@storybook/addon-actions'\nimport Menu from './menu'\nimport MenuItem from './menuItem'\nimport SubMenu from './subMenu'\n\n\nexport const defaultMenu = () => (\n  <Menu onSelect={(index) => {action(`clicked ${index} item`)}} >\n    <MenuItem>\n      菜单1\n    </MenuItem>\n    <MenuItem disabled>\n      菜单2\n    </MenuItem>\n    <MenuItem>\n      菜单3\n    </MenuItem>\n    <SubMenu title=\"下拉选项\">\n      <MenuItem>\n        下拉选项一\n      </MenuItem>\n      <MenuItem>\n        下拉选项二\n      </MenuItem>\n    </SubMenu>\n  </Menu>\n)\n\n\nexport const menuWithVertical = () => (\n  <Menu mode=\"vertical\" onSelect={(index) => {action(`clicked ${index} item`)}} >\n    <MenuItem>\n      cool link\n    </MenuItem>\n    <MenuItem>\n      cool link 2\n    </MenuItem>\n    <SubMenu title=\"点击下拉选项\">\n      <MenuItem>\n        下拉选项一\n      </MenuItem>\n      <MenuItem>\n        下拉选项二\n      </MenuItem>\n    </SubMenu>\n  </Menu>\n)\n\nexport const menuWithOpened = () => (\n  <Menu mode=\"vertical\" defaultOpenSubMenus={['2']} onSelect={(index) => {action(`clicked ${index} item`)}} >\n    <MenuItem>\n      cool link\n    </MenuItem>\n    <MenuItem>\n      cool link 2\n    </MenuItem>\n    <SubMenu title=\"默认展开下拉选项\">\n      <MenuItem>\n        下拉选项一\n      </MenuItem>\n      <MenuItem>\n        下拉选项二\n      </MenuItem>\n    </SubMenu>\n  </Menu>\n)\n\nstoriesOf('Menu Component', module)\n  .add('Menu', defaultMenu)\n  .add('纵向的 Menu', menuWithVertical)\n  .add('默认展开的纵向 Menu', menuWithOpened)\n"
+        }
+    ]
+}

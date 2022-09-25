@@ -1,0 +1,30 @@
+{
+    "sourceFile": ".vscode/settings.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1662986836350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1662988048598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,5 +14,8 @@\n       }\r\n     },\r\n     \"editor.tabSize\": 2,\r\n     \"todo-tree.tree.showScanModeButton\": false,\r\n+    \"cSpell.words\": [\r\n+      \"Leojias\"\r\n+    ],\r\n   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1663029988728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,7 @@\n     },\r\n     \"editor.tabSize\": 2,\r\n     \"todo-tree.tree.showScanModeButton\": false,\r\n     \"cSpell.words\": [\r\n-      \"Leojias\"\r\n+      \"kiko\"\r\n     ],\r\n   }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1663060446015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,5 +17,6 @@\n     \"todo-tree.tree.showScanModeButton\": false,\r\n     \"cSpell.words\": [\r\n       \"kiko\"\r\n     ],\r\n+    \"editor.fontLigatures\": false,\r\n   }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1662986836350,
+            "name": "Commit-0",
+            "content": "{\r\n    \"liveServer.settings.donotShowInfoMsg\": true,\r\n    \"vetur.format.defaultFormatter.html\": \"js-beautify-html\", // html 不换行\r\n    \"vetur.format.defaultFormatter.js\": \"vscode-typescript\", // js 不换行\r\n    \"vetur.format.defaultFormatterOptions\": {\r\n      \"js-beautify-html\": {\r\n        \"wrap_line_length\": 0, // 设置多个字符后换行 0 表示忽略\r\n        \"wrap_attributes\": \"auto\", // html 标签属性 换行设置[auto|force|force-aligned|force-expand-multiline] [\"auto\"]\r\n        \"end_with_newline\": false // 在文件结尾添加新行\r\n      },\r\n      \"prettier\": {\r\n        \"semi\": true, //要不要分号\r\n        \"singleQuote\": true //单引号\r\n      }\r\n    },\r\n    \"editor.tabSize\": 2,\r\n    \"todo-tree.tree.showScanModeButton\": false,\r\n  }"
+        }
+    ]
+}

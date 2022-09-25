@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/components/Menu/menu.test.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1663053376151,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1663053641324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n /*\r\n  * @Descripttion: \r\n  * @version: \r\n- * @Author: Leojias\r\n+ * @Author: kiko\r\n  * @Date: 2022-09-13 14:19:02\r\n  * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-13 15:16:10\r\n+ * @LastEditTime: 2022-09-13 15:20:41\r\n  */\r\n import React from \"react\";\r\n import { render,RenderResult} from '@testing-library/react'\r\n import Menu,{ MenuProps} from './menu'\r\n@@ -19,9 +19,9 @@\n const testVerProps:MenuProps={\r\n   defaultIndex:0,\r\n   mode:'vertical'\r\n }\r\n-const generateMenu =(props)=>{\r\n+const generateMenu =(props:any)=>{\r\n   return(\r\n     <Menu {...props}>\r\n       <MenuItem index={0}> active</MenuItem>\r\n       <MenuItem disabled index={1}> disabled </MenuItem>\r\n@@ -29,15 +29,15 @@\n     </Menu>\r\n   )\r\n \r\n }\r\n-let wrapper:RenderResult, menuElement:HTMLElement,activeElemen:HTMLElementt,disabledElement:HTMLElement\r\n+let wrapper:RenderResult, menuElement:HTMLElement,activeElement:HTMLElementt,disabledElement:HTMLElement\r\n describe(\r\n   \"test menu and menu-item\",()=>{\r\n     beforeEach(()=>{\r\n       wrapper=render(generateMenu(testProps))\r\n       menuElement=wrapper.getByTestId('test-menu')\r\n-      activeElemen=wrapper.getByText('active')\r\n+      activeElement=wrapper.getByText('active')\r\n       disabledElement=wrapper.getByText('disabled')\r\n     })\r\n       test('是否能正常显示menu和menu-item',()=>{\r\n          expect(menuElement).toBeInTheDocument()\r\n"
+                },
+                {
+                    "date": 1663053647380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n  * @Descripttion: \r\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-13 14:19:02\r\n- * @LastEditors: Leojias\r\n+ * @LastEditors: kiko\r\n  * @LastEditTime: 2022-09-13 15:20:41\r\n  */\r\n import React from \"react\";\r\n import { render,RenderResult} from '@testing-library/react'\r\n"
+                },
+                {
+                    "date": 1663053690124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n     </Menu>\r\n   )\r\n \r\n }\r\n-let wrapper:RenderResult, menuElement:HTMLElement,activeElement:HTMLElementt,disabledElement:HTMLElement\r\n+let wrapper:RenderResult, menuElement:HTMLElement,activeElement:HTMLElement,disabledElement:HTMLElement\r\n describe(\r\n   \"test menu and menu-item\",()=>{\r\n     beforeEach(()=>{\r\n       wrapper=render(generateMenu(testProps))\r\n"
+                },
+                {
+                    "date": 1663053831493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,10 @@\n  * @Descripttion: \r\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-13 14:19:02\r\n- * @LastEditors: kiko\r\n- * @LastEditTime: 2022-09-13 15:20:41\r\n+ * @LastEditors: Leojias\r\n+ * @LastEditTime: 2022-09-13 15:23:51\r\n  */\r\n import React from \"react\";\r\n import { render,RenderResult} from '@testing-library/react'\r\n import Menu,{ MenuProps} from './menu'\r\n@@ -32,8 +32,9 @@\n }\r\n let wrapper:RenderResult, menuElement:HTMLElement,activeElement:HTMLElement,disabledElement:HTMLElement\r\n describe(\r\n   \"test menu and menu-item\",()=>{\r\n+    //公共部分\r\n     beforeEach(()=>{\r\n       wrapper=render(generateMenu(testProps))\r\n       menuElement=wrapper.getByTestId('test-menu')\r\n       activeElement=wrapper.getByText('active')\r\n"
+                },
+                {
+                    "date": 1663053851566,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n const testVerProps:MenuProps={\r\n   defaultIndex:0,\r\n   mode:'vertical'\r\n }\r\n+//公共部分\r\n const generateMenu =(props:any)=>{\r\n   return(\r\n     <Menu {...props}>\r\n       <MenuItem index={0}> active</MenuItem>\r\n"
+                },
+                {
+                    "date": 1663060434685,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-13 14:19:02\r\n  * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-13 15:23:51\r\n+ * @LastEditTime: 2022-09-13 17:13:54\r\n  */\r\n import React from \"react\";\r\n import { render,RenderResult} from '@testing-library/react'\r\n import Menu,{ MenuProps} from './menu'\r\n"
+                },
+                {
+                    "date": 1663234368395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,13 +2,13 @@\n  * @Descripttion: \r\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-13 14:19:02\r\n- * @LastEditors: Leojias\r\n- * @LastEditTime: 2022-09-13 17:13:54\r\n+ * @LastEditors: kiko\r\n+ * @LastEditTime: 2022-09-15 17:32:48\r\n  */\r\n import React from \"react\";\r\n-import { render,RenderResult} from '@testing-library/react'\r\n+import { fireEvent, render,RenderResult} from '@testing-library/react'\r\n import Menu,{ MenuProps} from './menu'\r\n import MenuItem from './menuItem'\r\n \r\n const testProps:MenuProps={\r\n@@ -20,14 +20,15 @@\n   defaultIndex:0,\r\n   mode:'vertical'\r\n }\r\n //公共部分\r\n-const generateMenu =(props:any)=>{\r\n+const generateMenu =(props:MenuProps)=>{\r\n   return(\r\n     <Menu {...props}>\r\n       <MenuItem index={0}> active</MenuItem>\r\n       <MenuItem disabled index={1}> disabled </MenuItem>\r\n       <MenuItem index={2}>kiko</MenuItem>\r\n+      <li>11</li>\r\n     </Menu>\r\n   )\r\n \r\n }\r\n@@ -42,13 +43,23 @@\n       disabledElement=wrapper.getByText('disabled')\r\n     })\r\n       test('是否能正常显示menu和menu-item',()=>{\r\n          expect(menuElement).toBeInTheDocument()\r\n-\r\n+         expect(menuElement).toHaveClass('kiko-menu test')\r\n+         expect(menuElement.getElementsByTagName('li').length).toEqual(3)\r\n+         expect(activeElement).toHaveClass('menu-item is-active')\r\n+         expect(disabledElement).toHaveClass('menu-item is-disabled')\r\n       }) \r\n       \r\n       test('点击item能否正常触发行为以及是否有回调',()=>{\r\n-\r\n+        const thirdItem =wrapper.getByText('kiko')\r\n+        fireEvent.click(thirdItem)\r\n+        expect(thirdItem).toHaveClass('is-active')\r\n+        expect(activeElement).not.toHaveClass('is-active')\r\n+        expect(testProps.onSelect).toHaveBeenCalledWith(2)\r\n+        fireEvent.click(disabledElement)\r\n+        expect(disabledElement).not.toHaveClass('is-active')\r\n+        expect(testProps.onSelect).not.toHaveBeenCalledWith(1)\r\n       })  \r\n      \r\n      \r\n })\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1663234412183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     <Menu {...props}>\r\n       <MenuItem index={0}> active</MenuItem>\r\n       <MenuItem disabled index={1}> disabled </MenuItem>\r\n       <MenuItem index={2}>kiko</MenuItem>\r\n-      <li>11</li>\r\n+      \r\n     </Menu>\r\n   )\r\n \r\n }\r\n"
+                },
+                {
+                    "date": 1663234867491,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-13 14:19:02\r\n  * @LastEditors: kiko\r\n- * @LastEditTime: 2022-09-15 17:32:48\r\n+ * @LastEditTime: 2022-09-15 17:41:07\r\n  */\r\n import React from \"react\";\r\n import { fireEvent, render,RenderResult} from '@testing-library/react'\r\n import Menu,{ MenuProps} from './menu'\r\n@@ -23,11 +23,11 @@\n //公共部分\r\n const generateMenu =(props:MenuProps)=>{\r\n   return(\r\n     <Menu {...props}>\r\n-      <MenuItem index={0}> active</MenuItem>\r\n-      <MenuItem disabled index={1}> disabled </MenuItem>\r\n-      <MenuItem index={2}>kiko</MenuItem>\r\n+      <MenuItem > active</MenuItem>\r\n+      <MenuItem disabled > disabled </MenuItem>\r\n+      <MenuItem >kiko</MenuItem>\r\n       \r\n     </Menu>\r\n   )\r\n \r\n"
+                }
+            ],
+            "date": 1663053376151,
+            "name": "Commit-0",
+            "content": "/*\r\n * @Descripttion: \r\n * @version: \r\n * @Author: Leojias\r\n * @Date: 2022-09-13 14:19:02\r\n * @LastEditors: Leojias\r\n * @LastEditTime: 2022-09-13 15:16:10\r\n */\r\nimport React from \"react\";\r\nimport { render,RenderResult} from '@testing-library/react'\r\nimport Menu,{ MenuProps} from './menu'\r\nimport MenuItem from './menuItem'\r\n\r\nconst testProps:MenuProps={\r\n  defaultIndex:0,\r\n  onSelect:jest.fn(),\r\n  className:'test'\r\n}\r\nconst testVerProps:MenuProps={\r\n  defaultIndex:0,\r\n  mode:'vertical'\r\n}\r\nconst generateMenu =(props)=>{\r\n  return(\r\n    <Menu {...props}>\r\n      <MenuItem index={0}> active</MenuItem>\r\n      <MenuItem disabled index={1}> disabled </MenuItem>\r\n      <MenuItem index={2}>kiko</MenuItem>\r\n    </Menu>\r\n  )\r\n\r\n}\r\nlet wrapper:RenderResult, menuElement:HTMLElement,activeElemen:HTMLElementt,disabledElement:HTMLElement\r\ndescribe(\r\n  \"test menu and menu-item\",()=>{\r\n    beforeEach(()=>{\r\n      wrapper=render(generateMenu(testProps))\r\n      menuElement=wrapper.getByTestId('test-menu')\r\n      activeElemen=wrapper.getByText('active')\r\n      disabledElement=wrapper.getByText('disabled')\r\n    })\r\n      test('是否能正常显示menu和menu-item',()=>{\r\n         expect(menuElement).toBeInTheDocument()\r\n\r\n      }) \r\n      \r\n      test('点击item能否正常触发行为以及是否有回调',()=>{\r\n\r\n      })  \r\n     \r\n     \r\n})"
+        }
+    ]
+}

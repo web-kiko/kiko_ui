@@ -1,0 +1,30 @@
+{
+    "sourceFile": ".storybook/preview.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1663660475010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1663669301528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,5 +19,14 @@\n     </div>\n );\n // 添加全局修饰器\n addDecorator(storyFn => <StoryWrapper>{storyFn()}</StoryWrapper>);\n+const loaderFn = () => {\n+    \n+    const req = require.context('../src/components', true, /\\.stories\\.tsx$/)\n+    req.keys().forEach(file => allExports.push(req(file)))\n+    return allExports\n+}\n \n+  // automatically import all files ending in *.stories.tsx\n+configure(loaderFn, module)\n+\n"
+                },
+                {
+                    "date": 1663669329357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n );\n // 添加全局修饰器\n addDecorator(storyFn => <StoryWrapper>{storyFn()}</StoryWrapper>);\n const loaderFn = () => {\n-    \n+    const allExports = [require('../src/welcome.stories.tsx'), require('../src/Introduction.stories.mdx')]\n     const req = require.context('../src/components', true, /\\.stories\\.tsx$/)\n     req.keys().forEach(file => allExports.push(req(file)))\n     return allExports\n }\n"
+                },
+                {
+                    "date": 1663669769455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,14 +19,5 @@\n     </div>\n );\n // 添加全局修饰器\n addDecorator(storyFn => <StoryWrapper>{storyFn()}</StoryWrapper>);\n-const loaderFn = () => {\n-    const allExports = [require('../src/welcome.stories.tsx'), require('../src/Introduction.stories.mdx')]\n-    const req = require.context('../src/components', true, /\\.stories\\.tsx$/)\n-    req.keys().forEach(file => allExports.push(req(file)))\n-    return allExports\n-}\n \n-  // automatically import all files ending in *.stories.tsx\n-configure(loaderFn, module)\n-\n"
+                }
+            ],
+            "date": 1663660475010,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport { addDecorator, addParameters } from '@storybook/react';\nimport { withInfo } from '@storybook/addon-info';\n\n// 添加显示组件信息\naddDecorator(withInfo);\n// 添加配置\naddParameters({\n    info: {\n        inline: true,  // 直接显示信息，不需要点击图标\n        header: false, // 不显示头部，比较好看\n    },\n});\n\n// 定义内容居中的组件\nconst StoryWrapper = ({ children }) => (\n    <div style={{ padding: '20px 40px', }}>\n        {children}\n    </div>\n);\n// 添加全局修饰器\naddDecorator(storyFn => <StoryWrapper>{storyFn()}</StoryWrapper>);\n\n"
+        }
+    ]
+}

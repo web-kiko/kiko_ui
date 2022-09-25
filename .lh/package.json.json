@@ -1,0 +1,22 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1662685095528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1662685593485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,31 +2,32 @@\n   \"name\": \"kiko-ui\",\n   \"version\": \"0.1.0\",\n   \"private\": true,\n   \"dependencies\": {\n-    \"@testing-library/jest-dom\": \"^4.2.4\",\n-    \"@testing-library/react\": \"^9.3.2\",\n-    \"@testing-library/user-event\": \"^7.1.2\",\n-    \"@types/classnames\": \"^2.2.10\",\n-    \"@types/jest\": \"^24.0.0\",\n-    \"@types/node\": \"^12.0.0\",\n-    \"@types/react\": \"^16.9.0\",\n-    \"@types/react-dom\": \"^16.9.0\",\n-    \"classnames\": \"^2.2.6\",\n-    \"node-sass\": \"^4.14.1\",\n-    \"react\": \"^16.13.1\",\n-    \"react-dom\": \"^16.13.1\",\n-    \"react-scripts\": \"3.4.1\",\n-    \"typescript\": \"~3.7.2\"\n+    \"@testing-library/jest-dom\": \"^5.16.5\",\n+    \"@testing-library/react\": \"^13.4.0\",\n+    \"@testing-library/user-event\": \"^13.5.0\",\n+    \"@types/jest\": \"^27.5.2\",\n+    \"@types/node\": \"^16.11.58\",\n+    \"@types/react\": \"^18.0.18\",\n+    \"@types/react-dom\": \"^18.0.6\",\n+    \"react\": \"^18.2.0\",\n+    \"react-dom\": \"^18.2.0\",\n+    \"react-scripts\": \"5.0.1\",\n+    \"typescript\": \"^4.8.3\",\n+    \"web-vitals\": \"^2.1.4\"\n   },\n   \"scripts\": {\n     \"start\": \"react-scripts start\",\n     \"build\": \"react-scripts build\",\n     \"test\": \"react-scripts test\",\n     \"eject\": \"react-scripts eject\"\n   },\n   \"eslintConfig\": {\n-    \"extends\": \"react-app\"\n+    \"extends\": [\n+      \"react-app\",\n+      \"react-app/jest\"\n+    ]\n   },\n   \"browserslist\": {\n     \"production\": [\n       \">0.2%\",\n@@ -37,7 +38,6 @@\n       \"last 1 chrome version\",\n       \"last 1 firefox version\",\n       \"last 1 safari version\"\n     ]\n-  },\n-  \"devDependencies\": {}\n+  }\n }\n"
+                }
+            ],
+            "date": 1662685095528,
+            "name": "Commit-0",
+            "content": "{\n  \"name\": \"kiko-ui\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"dependencies\": {\n    \"@testing-library/jest-dom\": \"^4.2.4\",\n    \"@testing-library/react\": \"^9.3.2\",\n    \"@testing-library/user-event\": \"^7.1.2\",\n    \"@types/classnames\": \"^2.2.10\",\n    \"@types/jest\": \"^24.0.0\",\n    \"@types/node\": \"^12.0.0\",\n    \"@types/react\": \"^16.9.0\",\n    \"@types/react-dom\": \"^16.9.0\",\n    \"classnames\": \"^2.2.6\",\n    \"node-sass\": \"^4.14.1\",\n    \"react\": \"^16.13.1\",\n    \"react-dom\": \"^16.13.1\",\n    \"react-scripts\": \"3.4.1\",\n    \"typescript\": \"~3.7.2\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test\",\n    \"eject\": \"react-scripts eject\"\n  },\n  \"eslintConfig\": {\n    \"extends\": \"react-app\"\n  },\n  \"browserslist\": {\n    \"production\": [\n      \">0.2%\",\n      \"not dead\",\n      \"not op_mini all\"\n    ],\n    \"development\": [\n      \"last 1 chrome version\",\n      \"last 1 firefox version\",\n      \"last 1 safari version\"\n    ]\n  },\n  \"devDependencies\": {}\n}\n"
+        }
+    ]
+}

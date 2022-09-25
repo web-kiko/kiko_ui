@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/components/Input/input.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1663685218335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1663685352513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,26 @@\n+/*\r\n+ * @Descripttion: \r\n+ * @version: \r\n+ * @Author: kiko\r\n+ * @Date: 2022-09-20 22:46:49\r\n+ * @LastEditors: kiko\r\n+ * @LastEditTime: 2022-09-20 22:49:11\r\n+ */\r\n import React, { FC, ReactElement, InputHTMLAttributes } from 'react';\r\n import { IconProp } from '@fortawesome/fontawesome-svg-core';\r\n \r\n export type size = 'lg' | 'ml' | 'sm';\r\n \r\n // Omit<属性,要忽略的属性>\r\n export interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {\r\n+    //是否禁用 Input\r\n     disabled?: boolean,\r\n+    //大小\r\n     size?: size,\r\n+    //添加图标，在右侧悬浮添加一个图标，用于提示\r\n     icon?: IconProp,\r\n+    //添加前缀 用于配置一些固定组\r\n     prepand?: string | ReactElement,\r\n+    //添加后缀 用于配置一些固定组合\r\n     append?: string | ReactElement,\r\n }\r\n"
+                },
+                {
+                    "date": 1663686165123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,12 @@\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-20 22:46:49\r\n  * @LastEditors: kiko\r\n- * @LastEditTime: 2022-09-20 22:49:11\r\n+ * @LastEditTime: 2022-09-20 23:02:45\r\n  */\r\n import React, { FC, ReactElement, InputHTMLAttributes } from 'react';\r\n+import classNames from 'classnames'\r\n import { IconProp } from '@fortawesome/fontawesome-svg-core';\r\n \r\n export type size = 'lg' | 'ml' | 'sm';\r\n \r\n@@ -23,4 +24,49 @@\n     prepand?: string | ReactElement,\r\n     //添加后缀 用于配置一些固定组合\r\n     append?: string | ReactElement,\r\n }\r\n+\r\n+export const Input: FC<InputProps> = (props) => {\r\n+    // 取出所有的属性\r\n+    const { disabled, size, icon, prepend, append, style, ...restProps } = props\r\n+    // 根据不同的属性计算className\r\n+    const classes = classNames('kiko-input-wrapper', {\r\n+    [`input-size-${size}`]: size,\r\n+    'is-disabled': disabled,\r\n+    'input-group': prepend || append,\r\n+    'input-group-append': !!append,\r\n+    'input-group-prepend': !!prepend\r\n+    })\r\n+\r\n+    const fixControlledValue = (value: any) => {\r\n+    if (typeof value === 'undefined' || value === null) {\r\n+        return ''\r\n+    }\r\n+    return value\r\n+    }\r\n+\r\n+    if ('value' in props) {\r\n+    delete restProps.defaultValue\r\n+    restProps.value = fixControlledValue(props.value)\r\n+    }\r\n+    return (\r\n+      // 根据属性判断是否要添加不同的节点\r\n+    <div className={classes} style={style}>\r\n+        {prepend && <div className=\"kiko-input-group-prepend\">{prepend}</div>}\r\n+        {icon && <div className=\"icon-wrapper\"><Icon icon={icon} title={`title-${icon}`} /></div>}\r\n+        <input\r\n+        className=\"kiko-input-inner\"\r\n+        disabled={disabled}\r\n+        {...restProps}\r\n+        />\r\n+        {append && <div className=\"kiko-input-group-append\">{append}</div>}\r\n+    </div>\r\n+    )\r\n+}\r\n+\r\n+Input.defaultProps = {\r\n+    disabled: false\r\n+}\r\n+\r\n+export default Input;\r\n+\r\n"
+                },
+                {
+                    "date": 1663686235353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-20 22:46:49\r\n  * @LastEditors: kiko\r\n- * @LastEditTime: 2022-09-20 23:02:45\r\n+ * @LastEditTime: 2022-09-20 23:03:55\r\n  */\r\n import React, { FC, ReactElement, InputHTMLAttributes } from 'react';\r\n import classNames from 'classnames'\r\n import { IconProp } from '@fortawesome/fontawesome-svg-core';\r\n@@ -20,9 +20,9 @@\n     size?: size,\r\n     //添加图标，在右侧悬浮添加一个图标，用于提示\r\n     icon?: IconProp,\r\n     //添加前缀 用于配置一些固定组\r\n-    prepand?: string | ReactElement,\r\n+    prepend?: string | ReactElement,\r\n     //添加后缀 用于配置一些固定组合\r\n     append?: string | ReactElement,\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1663686263948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n  */\r\n import React, { FC, ReactElement, InputHTMLAttributes } from 'react';\r\n import classNames from 'classnames'\r\n import { IconProp } from '@fortawesome/fontawesome-svg-core';\r\n+import Icon from '../Icon/icon';\r\n \r\n export type size = 'lg' | 'ml' | 'sm';\r\n \r\n // Omit<属性,要忽略的属性>\r\n"
+                },
+                {
+                    "date": 1663746161182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n  * @version: \r\n  * @Author: kiko\r\n  * @Date: 2022-09-20 22:46:49\r\n  * @LastEditors: kiko\r\n- * @LastEditTime: 2022-09-20 23:03:55\r\n+ * @LastEditTime: 2022-09-21 15:42:40\r\n  */\r\n-import React, { FC, ReactElement, InputHTMLAttributes } from 'react';\r\n+import React, { FC, ReactElement, InputHTMLAttributes, ChangeEvent } from 'react';\r\n import classNames from 'classnames'\r\n import { IconProp } from '@fortawesome/fontawesome-svg-core';\r\n import Icon from '../Icon/icon';\r\n \r\n@@ -24,8 +24,9 @@\n     //添加前缀 用于配置一些固定组\r\n     prepend?: string | ReactElement,\r\n     //添加后缀 用于配置一些固定组合\r\n     append?: string | ReactElement,\r\n+    onChange? : (e: ChangeEvent<HTMLInputElement>) => void;\r\n }\r\n \r\n export const Input: FC<InputProps> = (props) => {\r\n     // 取出所有的属性\r\n"
+                }
+            ],
+            "date": 1663685218335,
+            "name": "Commit-0",
+            "content": "import React, { FC, ReactElement, InputHTMLAttributes } from 'react';\r\nimport { IconProp } from '@fortawesome/fontawesome-svg-core';\r\n\r\nexport type size = 'lg' | 'ml' | 'sm';\r\n\r\n// Omit<属性,要忽略的属性>\r\nexport interface InputProps extends Omit<InputHTMLAttributes<HTMLElement>, 'size'> {\r\n    disabled?: boolean,\r\n    size?: size,\r\n    icon?: IconProp,\r\n    prepand?: string | ReactElement,\r\n    append?: string | ReactElement,\r\n}\r\n"
+        }
+    ]
+}

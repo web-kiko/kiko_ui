@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/components/AutoComplete/autoComplete.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1664108619115,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1664109469624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,12 @@\n+/*\r\n+ * @Descripttion: \r\n+ * @version: \r\n+ * @Author: kiko\r\n+ * @Date: 2022-09-25 20:15:48\r\n+ * @LastEditors: kiko\r\n+ * @LastEditTime: 2022-09-25 20:37:49\r\n+ */\r\n import React, { FC, useState, useEffect, useRef, ChangeEvent, KeyboardEvent, ReactElement } from 'react'\r\n import classNames from 'classnames'\r\n import Input,{InputProps} from '../Input/input'\r\n import Icon from '../Icon/icon'\r\n@@ -7,11 +15,38 @@\n     value: string;\r\n }\r\n export type DataSourceType<T = {}> = T & DataSourceObject\r\n export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {\r\n-    /** 返回推荐结果 */\r\n-    fetchSuggestions: (str: string) => DataSourceType[] |Promise<DataSourceType[]>;\r\n+    /** fetchSuggestions让用户自己筛选返回结果  考虑不到异步使用promise*/\r\n+    fetchSuggestions: (str: string) => string[] |Promise<string[]>;\r\n     /** 选择选中某一项 */\r\n-    onSelect?: (item: DataSourceType) => void;\r\n+    onSelect?: (item: string) => void;\r\n\\ No newline at end of file\n     /** 自定义渲染样式 */\r\n-    renderOption?: (item: DataSourceType) => ReactElement;\r\n-  }\n+    // renderOption?: (item: DataSourceType) => ReactElement;\r\n+}\r\n+\r\n+export const AutoComplete: FC<AutoCompleteProps> = (props) => {\r\n+    const {fetchSuggestions,onSelect,value,...restProps} = props\r\n+    const [inputValue, setInputValue] = useState(value as string)\r\n+    const [suggestions, setSuggestions] = useState<string[]>([])\r\n+\r\n+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {\r\n+        const value = e.target.value.trim()\r\n+        setInputValue(value)\r\n+        if(value){\r\n+            const results =fetchSuggestions(value)\r\n+            setSuggestions(results)\r\n+        }else{\r\n+\r\n+        }\r\n+    }\r\n+    return (\r\n+        <div className=\"kiko-auto-complete\" >\r\n+        <Input\r\n+            value={inputValue}\r\n+            onChange={handleChange}\r\n+            //onKeyDown={handleKeyDown}\r\n+            {...restProps}\r\n+        />\r\n+        </div>\r\n+    )\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1664109500620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n }\r\n export type DataSourceType<T = {}> = T & DataSourceObject\r\n export interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {\r\n     /** fetchSuggestions让用户自己筛选返回结果  考虑不到异步使用promise*/\r\n-    fetchSuggestions: (str: string) => string[] |Promise<string[]>;\r\n+    fetchSuggestions: (str: string) => string[] ;\r\n     /** 选择选中某一项 */\r\n     onSelect?: (item: string) => void;\r\n     /** 自定义渲染样式 */\r\n     // renderOption?: (item: DataSourceType) => ReactElement;\r\n"
+                }
+            ],
+            "date": 1664108619115,
+            "name": "Commit-0",
+            "content": "import React, { FC, useState, useEffect, useRef, ChangeEvent, KeyboardEvent, ReactElement } from 'react'\r\nimport classNames from 'classnames'\r\nimport Input,{InputProps} from '../Input/input'\r\nimport Icon from '../Icon/icon'\r\n\r\ninterface DataSourceObject {\r\n    value: string;\r\n}\r\nexport type DataSourceType<T = {}> = T & DataSourceObject\r\nexport interface AutoCompleteProps extends Omit<InputProps, 'onSelect'> {\r\n    /** 返回推荐结果 */\r\n    fetchSuggestions: (str: string) => DataSourceType[] |Promise<DataSourceType[]>;\r\n    /** 选择选中某一项 */\r\n    onSelect?: (item: DataSourceType) => void;\r\n    /** 自定义渲染样式 */\r\n    renderOption?: (item: DataSourceType) => ReactElement;\r\n  }"
+        }
+    ]
+}

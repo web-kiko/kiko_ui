@@ -18,10 +18,6 @@ export interface UploadFile {
 /**
  * 通过点击或者拖拽上传文件
  * ### 引用方法
- *
- * ~~~js
- * import { Upload} from 'kikoship-ui'
- * ~~~
  */
 export interface UploadProps {
   /** 发送请求地址 */
@@ -61,6 +57,7 @@ export interface UploadProps {
   multiple?: boolean;
   /** 是否拖动上传 */
   drag?: boolean;
+  children:any;
 }
 
 export const Upload: FC<UploadProps> = (props) => {

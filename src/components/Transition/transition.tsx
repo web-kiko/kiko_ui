@@ -13,7 +13,9 @@ type AnimationName = 'zoom-in-top' | 'zoom-in-left' | 'zoom-in-bottom' | 'zoom-i
 export type TransitionProps<Ref extends HTMLElement | undefined = undefined> = CSSTransitionProps<Ref> & {
   animation?: AnimationName,
   // 添加一层dom, 避免 内置 transition冲突
-  wrapper?: boolean
+  wrapper?: boolean;
+  children:any;
+
 }
 
 const Transition: React.FC<TransitionProps> = (props) => {
